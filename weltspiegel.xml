@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="quickicon" method="upgrade">
+    <name>plg_quickicon_weltspiegel</name>
+    <version>1.0.0</version>
+    <creationDate>01.02.2026</creationDate>
+    <author>Michael Buchholz</author>
+    <authorEmail>mail@lean-stack.rocks</authorEmail>
+    <copyright>Weltspiegel Cottbus</copyright>
+    <license>MIT</license>
+    <description>PLG_QUICKICON_WELTSPIEGEL_XML_DESCRIPTION</description>
+    <namespace path="src">Weltspiegel\Plugin\Quickicon\Weltspiegel</namespace>
+
+    <files>
+        <folder plugin="weltspiegel">services</folder>
+        <folder>src</folder>
+    </files>
+
+    <languages folder="language">
+        <language tag="de-DE">de-DE/plg_quickicon_weltspiegel.ini</language>
+        <language tag="de-DE">de-DE/plg_quickicon_weltspiegel.sys.ini</language>
+        <language tag="en-GB">en-GB/plg_quickicon_weltspiegel.ini</language>
+        <language tag="en-GB">en-GB/plg_quickicon_weltspiegel.sys.ini</language>
+    </languages>
+
+    <updateservers>
+        <server type="extension" name="Weltspiegel Quick Icon Plugin Updates">https://raw.githubusercontent.com/weltspiegel-cottbus/plg_quickicon_weltspiegel/main/update-manifest.xml</server>
+    </updateservers>
+</extension>

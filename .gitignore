@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Build output
+*.zip
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
