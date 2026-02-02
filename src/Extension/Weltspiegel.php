@@ -9,6 +9,7 @@
 namespace Weltspiegel\Plugin\Quickicon\Weltspiegel\Extension;
 
 use Joomla\CMS\Plugin\CMSPlugin;
+use Joomla\Database\DatabaseAwareTrait;
 use Joomla\Event\SubscriberInterface;
 use Joomla\Module\Quickicon\Administrator\Event\QuickIconsEvent;
 
@@ -19,6 +20,8 @@ use Joomla\Module\Quickicon\Administrator\Event\QuickIconsEvent;
  */
 final class Weltspiegel extends CMSPlugin implements SubscriberInterface
 {
+    use DatabaseAwareTrait;
+
     /**
      * Load plugin language files automatically
      *
@@ -61,7 +64,20 @@ final class Weltspiegel extends CMSPlugin implements SubscriberInterface
 
         $result = $event->getArgument('result', []);
 
-        // Cinetixx - no add action (items come from API)
+	    // Startseite (featured article) - edit only
+	    $featuredId = $this->getFeaturedArticleId();
+	    if ($featuredId) {
+		    $result[] = [
+			    [
+				    'image' => 'icon-home',
+				    'name'  => 'PLG_QUICKICON_WELTSPIEGEL_STARTSEITE',
+				    'link'  => 'index.php?option=com_content&task=article.edit&id=' . $featuredId,
+				    'group' => 'MOD_QUICKICON_SITE',
+			    ],
+		    ];
+	    }
+
+	    // Cinetixx - no add action (items come from API)
         $result[] = [
             [
                 'image' => 'fa fa-film',
@@ -94,5 +110,27 @@ final class Weltspiegel extends CMSPlugin implements SubscriberInterface
         ];
 
         $event->setArgument('result', $result);
+    }
+
+    /**
+     * Get the ID of the featured article (startseite)
+     *
+     * @return int|null Article ID or null if not found
+     *
+     * @since 1.0.0
+     */
+    private function getFeaturedArticleId(): ?int
+    {
+        $db = $this->getDatabase();
+        $query = $db->getQuery(true)
+            ->select($db->quoteName('id'))
+            ->from($db->quoteName('#__content'))
+            ->where($db->quoteName('featured') . ' = 1')
+            ->setLimit(1);
+        $db->setQuery($query);
+
+        $id = $db->loadResult();
+
+        return $id ? (int) $id : null;
     }
 }
