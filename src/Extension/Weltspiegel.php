@@ -82,7 +82,7 @@ final class Weltspiegel extends CMSPlugin implements SubscriberInterface
             [
                 'image' => 'fa fa-film',
                 'name'  => 'PLG_QUICKICON_WELTSPIEGEL_CINETIXX',
-                'link'  => 'index.php?option=com_weltspiegel&view=cinetixx',
+                'link'  => 'index.php?option=com_weltspiegel&view=movies',
                 'group' => 'MOD_QUICKICON_SITE',
             ],
         ];
