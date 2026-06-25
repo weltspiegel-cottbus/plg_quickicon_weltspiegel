@@ -3,9 +3,10 @@
     <update>
         <name>Weltspiegel Quick Icon Plugin</name>
         <description>Quick icon plugin for Weltspiegel dashboard icons</description>
-        <element>plg_quickicon_weltspiegel</element>
+        <element>weltspiegel</element>
         <type>plugin</type>
         <folder>quickicon</folder>
+        <client>site</client>
         <version>1.1.0</version>
         <infourl title="GitHub Repository">https://github.com/weltspiegel-cottbus/plg_quickicon_weltspiegel</infourl>
         <downloads>
@@ -13,7 +14,7 @@
         </downloads>
         <maintainer>Michael Buchholz</maintainer>
         <maintainerurl>https://www.weltspiegel-cottbus.de</maintainerurl>
-        <targetplatform name="joomla" version="6.*"/>
+        <targetplatform name="joomla" version="6\.[0-9]"/>
         <php_minimum>8.1</php_minimum>
     </update>
 </updates>
