@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.0.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/plg_quickicon_weltspiegel/compare/v2.0.0...v2.0.1)
+
+### 🏡 Chore
+
+- Format and lint files. ([7ffe765](https://github.com/weltspiegel-cottbus/plg_quickicon_weltspiegel/commit/7ffe765))
+
 ## v2.0.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/plg_quickicon_weltspiegel/compare/v1.1.0...v2.0.0)
